@@ -1,0 +1,19 @@
+# This file acts as the project's changelog.
+
+@prefix :        <http://usefulinc.com/ns/doap#> .
+@prefix dcs:     <http://ontologi.es/doap-changeset#> .
+@prefix dc:      <http://purl.org/dc/terms/> .
+@prefix dist:    <http://purl.org/NET/cpan-uri/dist/Web-ID/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+dist:project :release dist:v_1-910_01 .
+dist:v_1-910_01
+	a               :Version ;
+	dc:issued       "2012-05-07"^^xsd:date ;
+	:revision       "1.910_01"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_01.tar.gz> ;
+	dcs:changeset [
+		dcs:versus <http://purl.org/NET/cpan-uri/dist/CGI-Auth-FOAF_SSL/v_1-002> ;
+		dcs:item   [ rdfs:label "Almost complete rewrite of CGI::Auth::FOAF_SSL. Very different (and much cleaner) API."@en ]
+	].

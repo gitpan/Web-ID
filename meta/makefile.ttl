@@ -1,0 +1,31 @@
+# This file provides instructions for packaging.
+
+@prefix : <http://purl.org/NET/cpan-uri/terms#> .
+
+<http://purl.org/NET/cpan-uri/dist/Web-ID/project>
+	:perl_version_from _:main ;
+	:version_from _:main ;
+	:readme_from _:main ;
+	:requires
+		"Any::Moose",
+		"Class::Load",
+		"Crypt::X509",
+		"DateTime",
+		"Digest::SHA1",
+		"List::MoreUtils",
+		"MIME::Base64",
+		"Mouse",
+		"MouseX::Types",
+		"namespace::clean",
+		"Path::Class",
+		"Plack",
+		"RDF::Query",
+		"RDF::Trine",
+		"Sub::Exporter",
+		"URI";
+	:test_requires
+		"Test::More 0.61"  .
+
+_:main <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#fileName> "lib/Web/ID.pm" .
+
+# grep -hr '^use ' lib/ | cut -d ' ' -f 2 | sed 's/;//' | sort -u | sed 's/^/"/;s/$/",/'
