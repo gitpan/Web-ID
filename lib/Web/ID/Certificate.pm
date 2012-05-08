@@ -5,13 +5,13 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Certificate::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Certificate::VERSION   = '1.910_01';
+	$Web::ID::Certificate::VERSION   = '1.910_02';
 }
 
 use Crypt::X509 0.50 ();  # why the hell does this export anything?!
 use DateTime 0;
 use Any::Moose 'X::Types::Moose' => [':all'];
-use Digest::SHA1 qw(sha1_hex);
+use Digest::SHA qw(sha1_hex);
 use MIME::Base64 0 qw(decode_base64);
 use Web::ID::Types qw(:all);
 use Web::ID::SAN;

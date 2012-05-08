@@ -9,6 +9,18 @@ SYNOPSIS
      }
 
 DESCRIPTION
+    WebID is a simple authentication protocol based on TLS (Transaction
+    Layer Security, better known as Secure Socket Layer, SSL) and the
+    Semantic Web. This module provides a Perl implementation for
+    authenticating clients using WebID.
+
+    For more information see the Web::ID::FAQ document.
+
+    Bundled with this module are Plack::Middleware::Auth::WebID, a plugin
+    for Plack to perform WebID authentication on HTTPS connections; and
+    Web::ID::Certificate::Generator, a module that allows you to generate
+    WebID-enabled certificates that can be installed into web browsers.
+
   Constructor
     "new"
         Standard Moose-style constructor. (This class uses Any::Moose.)
@@ -57,8 +69,47 @@ DESCRIPTION
           my $name   = $webid->get('foaf:name', 'rdfs:label');
           my @mboxes = $webid->get('foaf:mbox');
 
-BUGS
-    Please report any bugs to
+BUGS AND LIMITATIONS
+  Any::Moose
+    This module uses Any::Moose which means that if it detects that you're
+    using the rather heavyweight Moose toolkit, then this module will use it
+    too. But if you're not using it, then this module will use the
+    lighter-weight Mouse toolkit.
+
+    Similarly, this module will use either MouseX::Types or MooseX::Types.
+
+    As the decision to use Moose or Mouse is made at runtime, this makes
+    expressing Web::ID's dependencies rather challenging. Web::ID requires
+    either:
+
+    *   Any::Moose,
+
+    *   Mouse, and
+
+    *   MouseX::Types
+
+    or:
+
+    *   Any::Moose,
+
+    *   Moose, and
+
+    *   MooseX::Types
+
+    The installation script for Web-ID checks the first set of dependencies,
+    but if you only ever plan on using Moose, and never Mouse, then you
+    don't need them - you need the second set.
+
+    Yes, it's possible to have the installation script figure out a list of
+    dependencies dynamically when you install Web-ID, but that's not
+    especially helpful, as Any::Moose makes its decision about what module
+    to use at run time, not at install time.
+
+    The long and the short of it is: if you use Web::ID as part of a Moose
+    application, then make sure you have MooseX::Types installed.
+
+  Other
+    Please report any other bugs to
     <http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>.
 
 SEE ALSO

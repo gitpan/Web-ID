@@ -5,7 +5,7 @@ use utf8;
 
 BEGIN {
 	$Web::ID::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::VERSION   = '1.910_01';
+	$Web::ID::VERSION   = '1.910_02';
 }
 
 use Any::Moose 'X::Types::Moose' => [':all'];
@@ -124,6 +124,19 @@ Web::ID - implementation of WebID (a.k.a. FOAF+SSL)
 
 =head1 DESCRIPTION
 
+WebID is a simple authentication protocol based on TLS (Transaction
+Layer Security, better known as Secure Socket Layer, SSL) and the
+Semantic Web. This module provides a Perl implementation for
+authenticating clients using WebID.
+
+For more information see the L<Web::ID::FAQ> document.
+
+Bundled with this module are L<Plack::Middleware::Auth::WebID>, a
+plugin for L<Plack> to perform WebID authentication on HTTPS
+connections; and L<Web::ID::Certificate::Generator>, a module that
+allows you to generate WebID-enabled certificates that can be
+installed into web browsers.
+
 =head2 Constructor
 
 =over
@@ -195,9 +208,60 @@ can do stuff like:
 
 =back
 
-=head1 BUGS
+=head1 BUGS AND LIMITATIONS
 
-Please report any bugs to
+=head2 Any::Moose
+
+This module uses L<Any::Moose> which means that if it detects that
+you're using the rather heavyweight L<Moose> toolkit, then this module
+will use it too. But if you're not using it, then this module will
+use the lighter-weight L<Mouse> toolkit.
+
+Similarly, this module will use either L<MouseX::Types> or
+L<MooseX::Types>.
+
+As the decision to use Moose or Mouse is made at runtime, this makes
+expressing Web::ID's dependencies rather challenging. Web::ID requires
+B<either>:
+
+=over
+
+=item * Any::Moose,
+
+=item * Mouse, and
+
+=item * MouseX::Types
+
+=back
+
+B<or>:
+
+=over
+
+=item * Any::Moose,
+
+=item * Moose, and
+
+=item * MooseX::Types
+
+=back
+
+The installation script for Web-ID checks the first set of
+dependencies, but if you only ever plan on using Moose, and never
+Mouse, then you don't need them - you need the second set.
+
+Yes, it's possible to have the installation script figure out
+a list of dependencies dynamically when you install Web-ID, but
+that's not especially helpful, as Any::Moose makes its decision
+about what module to use at run time, not at install time.
+
+The long and the short of it is: if you use Web::ID as part
+of a Moose application, then make sure you have MooseX::Types
+installed.
+
+=head2 Other
+
+Please report any other bugs to
 L<http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>.
 
 =head1 SEE ALSO
