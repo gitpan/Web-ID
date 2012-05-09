@@ -24,7 +24,6 @@ no_index:
     - xt
 requires:
   Any::Moose: 0
-  Class::Load: 0
   Crypt::X509: 0
   DateTime: 0
   Digest::SHA: 0
@@ -44,4 +43,4 @@ resources:
   bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=Web-ID
   homepage: https://metacpan.org/release/Web-ID
   license: http://dev.perl.org/licenses/
-version: 1.910_03
+version: 1.910_04
