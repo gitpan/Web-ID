@@ -5,6 +5,11 @@ Created:      2012-04-26
 Home page:    <https://metacpan.org/release/Web-ID>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>
 
+1.920  2012-05-10
+
+ - (Documentation) Minor documentation changes.
+ - (Packaging) Mark as non-development release.
+
 1.910_04  2012-05-09
 
  - Drop dependency on Class::Load; use load_class from Plack::Util instead.

@@ -5,7 +5,7 @@ use utf8;
 
 BEGIN {
 	$Web::ID::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::VERSION   = '1.910_04';
+	$Web::ID::VERSION   = '1.920';
 }
 
 use Any::Moose 'X::Types::Moose' => [':all'];
@@ -294,9 +294,12 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 Thanks to Kjetil Kjernsmo (cpan:KJETILK) for persuading me to port my old
 CGI-specific implementaton of this to Plack.
 
-Thanks to Henry Story, Melvin Carvalho, Bruno Harbulot, Ian Jacobi and
-many others for developing WebID from a poorly thought out idea to a 
-clever, yet simple and practical authentication protocol.
+Thanks Kjetil Kjernsmo (again), Florian Ragwitz (cpan:FLORA), and
+Jonas Smedegaard for help with testing and advice on dependencies.
+
+Thanks to Henry Story, Melvin Carvalho, Simon Reinhardt, Bruno Harbulot,
+Ian Jacobi and many others for developing WebID from a poorly thought
+out idea to a clever, yet simple and practical authentication protocol.
 
 Thanks to Gregory Williams (cpan:GWILLIAMS), Tatsuhiko Miyagawa
 (cpan:MIYAGAWA) and the Moose Cabal for providing really good platforms
