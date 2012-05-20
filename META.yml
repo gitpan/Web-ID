@@ -33,7 +33,7 @@ requires:
   List::MoreUtils: 0
   MIME::Base64: 0
   Mouse: 0
-  MouseX::Types: 0
+  MouseX::Types: 0.06
   Path::Class: 0
   Plack: 0
   RDF::Query: 0
@@ -47,4 +47,4 @@ resources:
   homepage: https://metacpan.org/release/Web-ID
   license: http://dev.perl.org/licenses/
   repository: https://bitbucket.org/tobyink/p5-web-id
-version: 1.920
+version: 1.921
