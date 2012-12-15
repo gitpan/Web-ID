@@ -5,15 +5,15 @@ use utf8;
 
 BEGIN {
 	$Web::ID::RSAKey::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::RSAKey::VERSION   = '1.921';
+	$Web::ID::RSAKey::VERSION   = '1.922';
 }
 
-use Any::Moose 'X::Types::Moose' => [':all'];
-use Web::ID::Types ':all';
+use MooseX::Types::Moose -all;
+use Web::ID::Types -all;
 use Web::ID::Util;
 
-use Any::Moose;
-use namespace::clean -except => 'meta';
+use Moose;
+use namespace::sweep;
 
 for (qw( exponent modulus ))
 {
@@ -22,7 +22,7 @@ for (qw( exponent modulus ))
 		isa         => Bigint,
 		required    => true,
 		coerce      => true,
-		);
+	);
 }
 
 sub rsa_equal
@@ -54,7 +54,7 @@ Web::ID::RSAKey - an RSA key
 
 =item C<< new >>
 
-Standard Moose-style constructor. (This class uses L<Any::Moose>.)
+Standard Moose-style constructor. 
 
 =back
 

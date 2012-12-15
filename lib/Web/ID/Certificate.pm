@@ -5,15 +5,15 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Certificate::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Certificate::VERSION   = '1.921';
+	$Web::ID::Certificate::VERSION   = '1.922';
 }
 
 use Crypt::X509 0.50 ();  # why the hell does this export anything?!
 use DateTime 0;
-use Any::Moose 'X::Types::Moose' => [':all'];
+use MooseX::Types::Moose -all;
 use Digest::SHA qw(sha1_hex);
 use MIME::Base64 0 qw(decode_base64);
-use Web::ID::Types qw(:all);
+use Web::ID::Types -all;
 use Web::ID::SAN;
 use Web::ID::SAN::Email;
 use Web::ID::SAN::URI;
@@ -21,8 +21,6 @@ use Web::ID::Util qw(:default part);
 
 # Partly sorts a list of Web::ID::SAN objects,
 # prioritising URIs and Email addresses.
-#
-# Note: placing this deliberately before namespace::clean.
 #
 sub _sort_san
 {
@@ -35,61 +33,60 @@ sub _sort_san
 	@_;
 }
 
-use Any::Moose;
-use namespace::clean -except => 'meta';
+use Moose;
+use namespace::sweep -also => '_sort_san';
 
 has pem => (
 	is          => read_only,
 	isa         => Str,
 	required    => true,
 	coerce      => false,
-	);
+);
 
 has _der => (
 	is          => read_only,
 	isa         => Str,
 	required    => true,
 	lazy_build  => true,
-	);
+);
 
 has _x509 => (
 	is          => read_only,
 	isa         => 'Crypt::X509',
 	lazy_build  => true,
-	);
+);
 
 has public_key => (
 	is          => read_only,
 	isa         => Rsakey,
 	lazy_build  => true,
 	handles     => [qw(modulus exponent)],
-	);
+);
 
 has subject_alt_names => (
 	is          => read_only,
 	isa         => ArrayRef,
 	lazy_build  => true,
-	);
+);
 
 has $_ => (
 	is          => read_only,
 	isa         => Datetime,
 	lazy_build  => true,
 	coerce      => true,
-	)
-	for qw( not_before not_after );
+) for qw( not_before not_after );
 
 has san_factory => (
 	is          => read_only,
 	isa         => CodeRef,
 	lazy_build  => true,
-	);
+);
 
 has fingerprint => (
 	is          => read_only,
 	isa         => Str,
 	lazy_build  => true,
-	);
+);
 
 sub _build_fingerprint
 {
@@ -189,7 +186,7 @@ Web::ID::Certificate - an x509 certificate
 
 =item C<< new >>
 
-Standard Moose-style constructor. (This class uses L<Any::Moose>.)
+Standard Moose-style constructor. 
 
 =back
 

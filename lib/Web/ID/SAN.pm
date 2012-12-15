@@ -5,39 +5,38 @@ use utf8;
 
 BEGIN {
 	$Web::ID::SAN::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::SAN::VERSION   = '1.921';
+	$Web::ID::SAN::VERSION   = '1.922';
 }
 
-use Any::Moose 'X::Types::Moose' => [':all'];
-use Web::ID::Types ':all';
+use MooseX::Types::Moose -all;
+use Web::ID::Types -all;
 use RDF::Query 2.900;
 use URI 0;
 use URI::Escape 0 qw/uri_escape/;
 use Web::ID::RSAKey;
 use Web::ID::Util;
 
-use Any::Moose;
-use namespace::clean -except => 'meta';
+use Moose;
+use namespace::sweep;
 
 has $_ => (
 	is          => read_only,
 	isa         => Str,
 	required    => true,
 	coerce      => false,
-	)
-	for qw(type value);
+) for qw(type value);
 
 has model => (
 	is          => read_only,
 	isa         => Model,
 	lazy_build  => true,
-	);
+);
 
 has key_factory => (
 	is          => read_only,
 	isa         => CodeRef,
 	lazy_build  => true,
-	);
+);
 
 sub _build_model
 {
@@ -89,7 +88,7 @@ Web::ID::SAN - represents a single name from a certificate's subjectAltName fiel
 
 =item C<< new >>
 
-Standard Moose-style constructor. (This class uses L<Any::Moose>.)
+Standard Moose-style constructor. 
 
 =back
 
