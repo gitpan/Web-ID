@@ -3,121 +3,91 @@ Upstream-Name: Web-ID
 Upstream-Contact: Toby Inkster <tobyink@cpan.org>
 Source: https://metacpan.org/release/Web-ID
 
-Files: COPYRIGHT
-Copyright: None
-License: public-domain
-Comment: This file! Automatically generated.
+Files: CONTRIBUTING
+ CREDITS
+ Changes
+ LICENSE
+ MANIFEST.SKIP
+ META.ttl
+ Makefile.PL
+ README
+ examples/certificate-generation.pl
+ examples/certificate-parsing.pl
+ examples/fingerpoint-test.pl
+ examples/web-id-validation.pl
+ lib/Web/ID/Util/FindOpenSSL.pm
+ meta/changes.ttl
+ meta/doap.ttl
+ meta/makefile.ttl
+ t/lib/Test/HTTP/Server.pm
+Copyright: Unknown
+License: Unknown
+
+Files: lib/Plack/Middleware/Auth/WebID.pm
+ lib/Web/ID.pm
+ lib/Web/ID/Certificate.pm
+ lib/Web/ID/Certificate/Generator.pm
+ lib/Web/ID/FAQ.pod
+ lib/Web/ID/RSAKey.pm
+ lib/Web/ID/SAN.pm
+ lib/Web/ID/SAN/Email.pm
+ lib/Web/ID/SAN/URI.pm
+ lib/Web/ID/Types.pm
+ lib/Web/ID/Util.pm
+ t/01mouse.t
+ t/02moose.t
+ t/03certificate.t
+ t/04webid.t
+Copyright: This software is copyright (c) 2012 by Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
 
 Files: inc/Module/Install.pm
+ inc/Module/Install/Include.pm
+ inc/Module/Install/Metadata.pm
 Copyright: Copyright 2002 - 2012 Brian Ingerson, Audrey Tang and Adam Kennedy.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: inc/Module/Install/Base.pm
-Copyright: Copyright 2003, 2004 by Audrey Tang <autrijus@autrijus.org>.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: inc/Module/Install/Include.pm
-Copyright: Copyright 2002 - 2012 Brian Ingerson, Audrey Tang and Adam Kennedy.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: inc/Module/Install/Makefile.pm
-Copyright: Copyright 2002, 2003, 2004 Audrey Tang and Brian Ingerson.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: inc/Module/Install/Metadata.pm
-Copyright: Copyright 2002 - 2012 Brian Ingerson, Audrey Tang and Adam Kennedy.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: inc/Module/Install/Package.pm
-Copyright: Copyright (c) 2011. Ingy doet Net.
 License: GPL-1.0+ or Artistic-1.0
 
 Files: inc/Module/Install/TrustMetaYml.pm
+ inc/Module/Package/Dist/RDF.pm
 Copyright: This software is copyright (c) 2011-2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: inc/Scalar/Util.pm
-Copyright: Copyright (c) 1997-2007 Graham Barr <gbarr@pobox.com>. All rights reserved. Copyright (c) 1999 Tuomas J. Lukka <lukka@iki.fi>. All rights reserved.
 License: GPL-1.0+ or Artistic-1.0
 
 Files: inc/YAML/Tiny.pm
 Copyright: Copyright 2006 - 2012 Adam Kennedy.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: inc/unicore/Name.pm
-Copyright: 1993-2012, Larry Wall and others
+Files: inc/Module/Install/Contributors.pm
+Copyright: This software is copyright (c) 2013 by Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: inc/utf8.pm
-Copyright: 1993-2012, Larry Wall and others
+Files: inc/Module/Install/Base.pm
+Copyright: Copyright 2003, 2004 by Audrey Tang <autrijus@autrijus.org>.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: lib/Plack/Middleware/Auth/WebID.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
+Files: inc/Module/Install/Package.pm
+Copyright: Copyright (c) 2011. Ingy doet Net.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: lib/Web/ID.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
+Files: COPYRIGHT
+Copyright: None
+License: public-domain
+Comment: This file! Automatically generated.
+
+Files: inc/Module/Install/Makefile.pm
+Copyright: Copyright 2002, 2003, 2004 Audrey Tang and Brian Ingerson.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: lib/Web/ID/Certificate.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/Certificate/Generator.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/FAQ.pod
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/RSAKey.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/SAN.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/SAN/Email.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/SAN/URI.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/Types.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: lib/Web/ID/Util.pm
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: t/01mouse.t
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: t/02moose.t
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: t/03certificate.t
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: t/04webid.t
-Copyright: This software is copyright (c) 2012 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: Changes LICENSE MANIFEST.SKIP Makefile.PL README examples/certificate-generation.pl examples/certificate-parsing.pl examples/fingerpoint-test.pl examples/web-id-validation.pl inc/Module/Package/Dist/RDF.pm meta/changes.ttl meta/doap.ttl meta/makefile.ttl t/lib/Test/HTTP/Server.pm
-Copyright: Unknown
-License: Unknown
-
-License: GPL-1.0+ or Artistic-1.0
- This software is copyright (c) 2012 by the copyright holder(s).
+License: Artistic-1.0
+ This software is Copyright (c) 2013 by the copyright holder(s).
  
- This is free software; you can redistribute it and/or modify it under
- the same terms as the Perl 5 programming language system itself.
+ This is free software, licensed under:
+ 
+   The Artistic License 1.0
+
+License: GPL-1.0
+ This software is Copyright (c) 2013 by the copyright holder(s).
+ 
+ This is free software, licensed under:
+ 
+   The GNU General Public License, Version 1, February 1989
+

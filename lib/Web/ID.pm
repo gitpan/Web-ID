@@ -5,11 +5,10 @@ use utf8;
 
 BEGIN {
 	$Web::ID::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::VERSION   = '1.922';
+	$Web::ID::VERSION   = '1.923';
 }
 
-use MooseX::Types::Moose -all;
-use Web::ID::Types -all;
+use Web::ID::Types -types;
 use Web::ID::Certificate;
 use Web::ID::Util qw(:default uniq);
 
@@ -88,14 +87,14 @@ sub _build_first_valid_san
 sub node
 {
 	my ($self) = @_;
-	RDF::Trine::Node::Resource->new($self->uri.'');
+	"RDF::Trine::Node::Resource"->new($self->uri.'');
 }
 
 sub get
 {
 	my $self = shift;
 	my @pred = map {
-		if (blessed $_ and $_->isa('RDF::Trine::Node'))   {   $_ }
+		if (blessed $_ and $_->isa("RDF::Trine::Node"))   {   $_ }
 		else                                              { u $_ }
 	} @_;
 	

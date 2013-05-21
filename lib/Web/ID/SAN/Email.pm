@@ -7,7 +7,7 @@ our $WWW_Finger = 0;
 
 BEGIN {
 	$Web::ID::SAN::Email::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::SAN::Email::VERSION   = '1.922';
+	$Web::ID::SAN::Email::VERSION   = '1.923';
 	
 	eval {
 		no warnings;
@@ -17,13 +17,12 @@ BEGIN {
 	}
 }
 
-use MooseX::Types::Moose -all;
-use Web::ID::Types -all;
+use Web::ID::Types -types;
 use Web::ID::Util;
 
 use Moose;
 use namespace::sweep;
-extends 'Web::ID::SAN';
+extends "Web::ID::SAN";
 
 has '+type' => (default => 'rfc822Name');
 
@@ -48,8 +47,8 @@ around _build_model => sub
 	{
 		if ($finger->endpoint)
 		{
-			my $store = RDF::Trine::Store::SPARQL->new($finger->endpoint);
-			return RDF::Trine::Model->new($store);
+			my $store = "RDF::Trine::Store::SPARQL"->new($finger->endpoint);
+			return Model->new($store);
 		}
 		return $finger->graph;
 	}

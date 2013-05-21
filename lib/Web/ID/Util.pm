@@ -6,28 +6,24 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Util::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Util::VERSION   = '1.922';
+	$Web::ID::Util::VERSION   = '1.923';
 }
 
+use match::simple qw/match/;
 use Carp qw/confess/;
 use Math::BigInt 0 try => 'GMP';
 use RDF::Trine::NamespaceMap;
 use List::MoreUtils qw(:all !true !false);
 
-our (@EXPORT, @EXPORT_OK);
-BEGIN {
-	@EXPORT    = qw(make_bigint_from_node get_trine_model u uu
-	                true false read_only read_write);
-	@EXPORT_OK = (@EXPORT, grep {!/^(true|false)$/} @List::MoreUtils::EXPORT_OK);
-}
-
-use Sub::Exporter -setup => {
-	exports => \@EXPORT_OK,
-	groups  => {
-		default  => \@EXPORT,
-		all      => \@EXPORT_OK,
-	},
-};
+use base "Exporter::TypeTiny";
+our @EXPORT = qw(
+	make_bigint_from_node get_trine_model u uu
+	true false read_only read_write
+);
+our @EXPORT_OK = (
+	@EXPORT,
+	grep {!/^(true|false)$/} @List::MoreUtils::EXPORT_OK
+);
 
 use constant {
 	read_only  => 'ro',
@@ -70,9 +66,9 @@ sub get_trine_model
 {
 	my ($uri, $model) = @_;
 	
-	$model //= RDF::Trine::Model->new;
+	$model //= "RDF::Trine::Model"->new;
 	eval {
-		RDF::Trine::Parser->parse_url_into_model($uri, $model);
+		"RDF::Trine::Parser"->parse_url_into_model($uri, $model);
 	};
 	
 	return $model;
@@ -112,37 +108,37 @@ sub make_bigint_from_node
 	
 	if ($node->is_literal)
 	{
-		given ($node->literal_datatype)
+		for ($node->literal_datatype)
 		{
-			when ($_ ~~ $test_hex)
+			if (match $_, $test_hex)
 			{
 				( my $hex = $node->literal_value ) =~ s/[^0-9A-F]//ig;
-				return Math::BigInt->from_hex("0x$hex");
+				return "Math::BigInt"->from_hex("0x$hex");
 			}
 			
-			when ($_ ~~ $test_unsigned)
+			if (match $_, $test_unsigned)
 			{
 				( my $dec = $node->literal_value ) =~ s/[^0-9]//ig;
-				return Math::BigInt->new("$dec");
+				return "Math::BigInt"->new("$dec");
 			}
 			
-			when ($_ ~~ $test_signed)
+			if (match $_, $test_signed)
 			{
 				( my $dec = $node->literal_value ) =~ s/[^0-9-]//ig;
-				return Math::BigInt->new("$dec");
+				return "Math::BigInt"->new("$dec");
 			}
 			
-			when ($_ ~~ $test_decimal)
+			if (match $_, $test_decimal)
 			{
 				my ($dec, $frac) = split /\./, $node->literal_value, 2;
 				warn "Ignoring fractional part of xsd:decimal number."
 					if defined $frac;
 				
 				$dec =~ s/[^0-9-]//ig;
-				return Math::BigInt->new("$dec");
+				return "Math::BigInt"->new("$dec");
 			}
 			
-			when ($_ ~~ undef)
+			if (match $_, undef)
 			{
 				$opts{'fallback'} = $node;
 			}
@@ -155,7 +151,7 @@ sub make_bigint_from_node
 		if ($opts{'fallback_type'} eq 'hex')
 		{
 			(my $hex = $node->literal_value) =~ s/[^0-9A-F]//ig;
-			return Math::BigInt->from_hex("0x$hex");
+			return "Math::BigInt"->from_hex("0x$hex");
 		}
 		else # dec
 		{
@@ -164,7 +160,7 @@ sub make_bigint_from_node
 				if defined $frac;
 				
 			$dec =~ s/[^0-9]//ig;
-			return Math::BigInt->new("$dec");
+			return "Math::BigInt"->new("$dec");
 		}
 	}
 	
@@ -185,8 +181,8 @@ These are utility functions which I found useful building Web-ID.
 Many of them may also be useful creating the kind of apps that
 Web-ID is used to authenticate for.
 
-Here is a very brief summary. By default, they're B<all> exported
-to your namespace. (This modulue uses L<Sub::Exporter> so you get
+Here is a very brief summary. By B<default>, they're B<all> exported
+to your namespace. (This modulue uses L<Exporter::TypeTiny> so you get
 pretty good control over what gets exported.)
 
 =over
@@ -234,6 +230,7 @@ L<Web::ID> itself.
 
 =head1 SEE ALSO
 
+L<Exporter::TypeTiny>,
 L<Web::ID>,
 L<Acme::24>.
 

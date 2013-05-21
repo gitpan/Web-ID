@@ -5,11 +5,10 @@ use utf8;
 
 BEGIN {
 	$Web::ID::SAN::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::SAN::VERSION   = '1.922';
+	$Web::ID::SAN::VERSION   = '1.923';
 }
 
-use MooseX::Types::Moose -all;
-use Web::ID::Types -all;
+use Web::ID::Types -types;
 use RDF::Query 2.900;
 use URI 0;
 use URI::Escape 0 qw/uri_escape/;
@@ -40,7 +39,7 @@ has key_factory => (
 
 sub _build_model
 {
-	return RDF::Trine::Model->new;
+	return Model->new;
 }
 
 my $default_key_factory = sub
@@ -48,7 +47,7 @@ my $default_key_factory = sub
 	my (%args) = @_;
 	return unless $args{exponent};
 	return unless $args{modulus};
-	Web::ID::RSAKey->new(%args);
+	Rsakey->new(%args);
 };
 
 sub _build_key_factory
@@ -59,7 +58,7 @@ sub _build_key_factory
 sub uri_object
 {
 	my ($self) = @_;
-	return URI->new(sprintf 'urn:x-subject-alt-name:%s:%s', map {uri_escape $_} $self->type, $self->value);
+	return Uri->new(sprintf 'urn:x-subject-alt-name:%s:%s', map {uri_escape $_} $self->type, $self->value);
 }
 
 sub to_string

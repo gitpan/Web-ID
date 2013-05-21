@@ -5,11 +5,10 @@ use utf8;
 
 BEGIN {
 	$Web::ID::SAN::URI::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::SAN::URI::VERSION   = '1.922';
+	$Web::ID::SAN::URI::VERSION   = '1.923';
 }
 
-use MooseX::Types::Moose -all;
-use Web::ID::Types -all;
+use Web::ID::Types -types;
 use Web::ID::Util;
 
 use Moose;
@@ -21,7 +20,7 @@ has '+type' => (default => 'uniformResourceIdentifier');
 override uri_object => sub
 {
 	my ($self) = @_;
-	return URI->new($self->value);
+	return Uri->new($self->value);
 };
 
 around _build_model => sub

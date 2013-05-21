@@ -10,15 +10,17 @@
 		"Crypt::X509",
 		"DateTime",
 		"Digest::SHA",
+		"Exporter::TypeTiny 0.004",
+		"File::ShareDir",
 		"List::MoreUtils",
+		"match::simple 0.004",
 		"Moose",
-		"MooseX::Types",
 		"namespace::sweep",
-		"Path::Class",
+		"Path::Tiny",
 		"Plack",
 		"RDF::Query 2.900",
 		"RDF::Trine 1.000",
-		"Sub::Exporter",
+		"Types::Standard 0.004",
 		"URI";
 	:test_requires
 		"Test::More 0.61"  .

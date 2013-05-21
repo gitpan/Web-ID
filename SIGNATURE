@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.68.
+signed via the Module::Signature module, version 0.70.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,12 +14,15 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 568b8921ee3ce7af89e882ae852eebb3efe254d0 COPYRIGHT
-SHA1 864c904ac3be5fd1286f49eb0412a1f84e3de644 Changes
-SHA1 cc087c3dd6e1b519c680e68cd0231735a68300a0 LICENSE
-SHA1 30c56b702d2e1184ecaeb4d46c131ac71d18c9c3 MANIFEST
-SHA1 495da5a97df0d819d70b14b04637d1dfe2d13726 META.yml
-SHA1 7150e5e086ef493e1e527a1eeec44a8344b80db6 Makefile.PL
+SHA1 294505f858f11dd062e9916e3f50d88210a9ef54 CONTRIBUTING
+SHA1 f24e6bcfd28af50a924d96535603e530fdcd9a86 COPYRIGHT
+SHA1 7339d9dd8cc390854ef259a1ab59b1d2c02dacb7 CREDITS
+SHA1 20925426c83c50f513e204e5bd9801366c4f5211 Changes
+SHA1 937d452c5c4069f4cda9ffaf45a33f1eb5f060e8 LICENSE
+SHA1 f53ce938039a50f37968ffad043d6e1b1b5e22aa MANIFEST
+SHA1 0619beb8ab7fe0c2f7f13b99e238cb2cff269bbb META.ttl
+SHA1 e158fc5cf002ed8548627f8105e50e1132338c99 META.yml
+SHA1 f768ca1fde632a12cebccea3456629d3af4766df Makefile.PL
 SHA1 ed014dcabc60e78266b5e691cc56a853018be058 README
 SHA1 42fd4caeb9333e3f37e86c2bdb38cec4ccbc78c0 examples/certificate-generation.pl
 SHA1 03d3c6b48b15ad2bbbcfea677a3257374c208c0a examples/certificate-parsing.pl
@@ -31,43 +34,42 @@ SHA1 61ab1dd37e33ddbe155907ce51df8a3e56ac8bbf inc/Module/Install/AutoInstall.pm
 SHA1 c04f94f91fa97b9f8cfb5a36071098ab0e6c78e3 inc/Module/Install/AutoManifest.pm
 SHA1 2d0fad3bf255f8c1e7e1e34eafccc4f595603ddc inc/Module/Install/Base.pm
 SHA1 f0e01fff7d73cd145fbf22331579918d4628ddb0 inc/Module/Install/Can.pm
+SHA1 9e4cc10c7f138a3f2c60d9ee1f34261f0d8c5aae inc/Module/Install/Contributors.pm
 SHA1 7328966e4fda0c8451a6d3850704da0b84ac1540 inc/Module/Install/Fetch.pm
 SHA1 66d3d335a03492583a3be121a7d888f63f08412c inc/Module/Install/Include.pm
 SHA1 b62ca5e2d58fa66766ccf4d64574f9e1a2250b34 inc/Module/Install/Makefile.pm
 SHA1 1aa925be410bb3bfcd84a16985921f66073cc1d2 inc/Module/Install/Metadata.pm
 SHA1 3b9281ddf7dd6d6f5de0a9642c69333023193c80 inc/Module/Install/Package.pm
-SHA1 9de7b5129351499c048328dfa718d0eab557cf30 inc/Module/Install/TrustMetaYml.pm
+SHA1 41f76ff6b39368a65da86377e43b34bacc2fb0eb inc/Module/Install/TrustMetaYml.pm
 SHA1 e4196994fa75e98bdfa2be0bdeeffef66de88171 inc/Module/Install/Win32.pm
 SHA1 c3a6d0d5b84feb3280622e9599e86247d58b0d18 inc/Module/Install/WriteAll.pm
 SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 c18deb3025b83dda8ac7c97f1e29599e1d2c7378 inc/Module/Package/Dist/RDF.pm
-SHA1 0e0eed2e69d9583081868cf4f220068d0a018568 inc/Scalar/Util.pm
+SHA1 5a2f84a7a82eee0d1e5ed3628fe503a608efc10f inc/Module/Package/Dist/RDF.pm
 SHA1 feb933cefe2e3762e8322bd6071a2499f3440da1 inc/YAML/Tiny.pm
-SHA1 8105c0510a773b56840995fb4dd2dc64fe9ddaee inc/unicore/Name.pm
-SHA1 36df501c7c9b73c282c5174ed54d8283b2f2cbf2 inc/utf8.pm
-SHA1 5b618cd1a6530533623885c724dbfdfcc7180eee lib/Plack/Middleware/Auth/WebID.pm
-SHA1 8f088e526e81218e1f5ee9f22a0dbce8db6540e2 lib/Web/ID.pm
-SHA1 b8a91f71ad902a64836efd88a42a9933320e946f lib/Web/ID/Certificate.pm
-SHA1 07fc4ca25ab343072d87874df990a3b173c0902f lib/Web/ID/Certificate/Generator.pm
+SHA1 4c2a620d34ea23a5dcc3b202201c6e80d1788561 lib/Plack/Middleware/Auth/WebID.pm
+SHA1 5ac1bb5be6f870432b00d1fed88b635292ef5de0 lib/Web/ID.pm
+SHA1 0c0712e8fd63685b7b36063a990aa3bef9a42518 lib/Web/ID/Certificate.pm
+SHA1 eeec149ce40ef966e96e7a1a02a6256c0d6560d6 lib/Web/ID/Certificate/Generator.pm
 SHA1 f5814fea529758d9913f8211f44e852644f14bba lib/Web/ID/FAQ.pod
-SHA1 63c487afa55da7539c54801507707ef632a7459f lib/Web/ID/RSAKey.pm
-SHA1 de94829ea159dddf257e50cfa8a89f0d4ee69f21 lib/Web/ID/SAN.pm
-SHA1 7fee015ecffa764308ce88e801f6ba8daa8c5c6b lib/Web/ID/SAN/Email.pm
-SHA1 18d236695b0064c88f6ab7a5e29802421cf086fb lib/Web/ID/SAN/URI.pm
-SHA1 6f272a60725716f82b5d91cbda7f0b91d6a76436 lib/Web/ID/Types.pm
-SHA1 1803fd0fb5d1c1529ed491c1584bdcf2f184b3e3 lib/Web/ID/Util.pm
-SHA1 62e0a799ac94cfd47922516e50571f90ebf635a6 meta/changes.ttl
-SHA1 e9fd3cc2c94f030592333eda8c4737e6675c8ad2 meta/doap.ttl
-SHA1 aacdfcc0b2266906f99d8a6faffdc73afc032e0d meta/makefile.ttl
+SHA1 594a4be766f4235adb3f257233832109410f5826 lib/Web/ID/RSAKey.pm
+SHA1 a67cd654ecdce353921b15767710d71c8dd8d3c4 lib/Web/ID/SAN.pm
+SHA1 d56eb31ff3f75183114d284caeefc72d7d99ff11 lib/Web/ID/SAN/Email.pm
+SHA1 0f8b46f20f978bdee95f0b8a36399cade33fdc5b lib/Web/ID/SAN/URI.pm
+SHA1 1b88e858cd534b5a78bdcc9bea9d5de49d71cc96 lib/Web/ID/Types.pm
+SHA1 9aa230662412a34477a0f470ff620ad43a287a04 lib/Web/ID/Util.pm
+SHA1 d646018f86771d3b2ff8fe1784eafe2fd319045a lib/Web/ID/Util/FindOpenSSL.pm
+SHA1 7a1198d374fbf931e6c513e5a423b9f64f40f40b meta/changes.ttl
+SHA1 61b2a6a07ee5a7246a8faef108bf5145b021e0ba meta/doap.ttl
+SHA1 8308219534858bd95c16127c69fee56857826550 meta/makefile.ttl
 SHA1 311478d30fce690179458dd8b5ca2afc951c8e42 t/01mouse.t
 SHA1 61357e85d9676b656a5cedf29618fbdcfc7405b3 t/02moose.t
 SHA1 6bccc6bac755209db20f7eb4ccfe2fbcb6780d06 t/03certificate.t
-SHA1 9c8d2eba7da5cf859fb9156ce83f8bf2b955cbcf t/04webid.t
+SHA1 7f7014f6962eb3f8c2be8b3b1d0e6e3aecf27037 t/04webid.t
 SHA1 c145c4023e4f8a015b0110476aedd8deccac81e2 t/lib/Test/HTTP/Server.pm
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.10 (GNU/Linux)
+Version: GnuPG v1.4.12 (GNU/Linux)
 
-iEYEARECAAYFAlDMh7oACgkQzr+BKGoqfTnm5wCgkbhhgyuuRxSz5BSWLBCdaFMj
-28oAni2sojBpyTglH1rVdzHEhZZ4QP0R
-=mAIY
+iEYEARECAAYFAlGb6MEACgkQzr+BKGoqfTl9KgCgtIznLjOcgkHb5QFhdnE15mwq
+FPEAoKqAUT+DgxJmJfoMgInZ640jAp1C
+=i8VQ
 -----END PGP SIGNATURE-----

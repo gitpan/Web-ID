@@ -5,16 +5,15 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Certificate::Generator::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Certificate::Generator::VERSION   = '1.922';
+	$Web::ID::Certificate::Generator::VERSION   = '1.923';
 }
 
-use MooseX::Types::Moose -all;
 use Moose::Util qw(apply_all_roles);
 use File::Temp qw();
-use Path::Class qw();
+use Path::Tiny qw(path);
 use RDF::Trine qw(statement blank iri literal);
 use Web::ID::Certificate;
-use Web::ID::Types ':all';
+use Web::ID::Types -types;
 use Web::ID::Util;
 
 use Moose::Role;
@@ -22,16 +21,13 @@ use namespace::sweep;
 
 sub import
 {
-	apply_all_roles('Web::ID::Certificate', __PACKAGE__);
+	apply_all_roles("Web::ID::Certificate", __PACKAGE__);
 }
 
 sub _openssl_path
 {
-	Path::Class::File->new(
-		$^O eq 'Win32'
-			? 'c:\\openssl\\bin\\openssl.exe'
-			: '/usr/bin/openssl'
-	)
+	require Web::ID::Util::FindOpenSSL;
+	path( Web::ID::Util::FindOpenSSL::find_openssl() );
 }
 
 sub generate
@@ -63,13 +59,13 @@ sub generate
 	confess "unsupported options: ".(join q(, ), sort keys %options) if %options;
 	
 	my $days = $not_after
-		? $not_after->delta_days( DateTime->now )->days
+		? $not_after->delta_days( Datetime->class->now )->days
 		: 365;
 	
-	my $tempdir = Path::Class::Dir->new( File::Temp->newdir );
+	my $tempdir = path( File::Temp->newdir );
 	$tempdir->mkpath;
 	
-	my $config = $tempdir->file('openssl.cnf')->openw;
+	my $config = $tempdir->child('openssl.cnf')->openw;
 	say $config $_ for
 		q([req]),
 		q(default_bits = 1024),
@@ -110,9 +106,9 @@ sub generate
 		"-newkey"  => "rsa:".$key_size,
 		"-x509",
 		"-days"    => $days,
-		"-config"  => $tempdir->file('openssl.cnf'),
-		"-out"     => $tempdir->file('cert.pem'),
-		"-keyout"  => $tempdir->file('privkey.pem'),
+		"-config"  => $tempdir->child('openssl.cnf'),
+		"-out"     => $tempdir->child('cert.pem'),
+		"-keyout"  => $tempdir->child('privkey.pem'),
 		"-passout" => "pass:".$passphrase,
 	);
 	
@@ -120,9 +116,9 @@ sub generate
 		$openssl,
 		"pkcs12",
 		"-export",
-		"-in"      => $tempdir->file('cert.pem'),
-		"-inkey"   => $tempdir->file('privkey.pem'),
-		"-out"     => $tempdir->file('cert.p12'),
+		"-in"      => $tempdir->child('cert.pem'),
+		"-inkey"   => $tempdir->child('privkey.pem'),
+		"-out"     => $tempdir->child('cert.p12'),
 		"-name"    => sprintf('%s <%s>', ($subject{CN}//'Unnamed'), $sans->[0]->value), 
 		"-passin"  => "pass:".$passphrase,
 		"-passout" => "pass:".$passphrase,
@@ -130,24 +126,24 @@ sub generate
 	
 	if (ref $dest eq 'SCALAR')
 	{
-		$$dest = $tempdir->file('cert.p12')->slurp;
+		$$dest = $tempdir->child('cert.p12')->slurp;
 	}
 	elsif (ref $dest =~ m/^IO/)
 	{
-		my $p12 = $tempdir->file('cert.p12')->slurp;
+		my $p12 = $tempdir->child('cert.p12')->slurp;
 		print $dest $p12;
 	}
 	else
 	{
-		my $p12 = $tempdir->file('cert.p12')->slurp;
-		my $fh  = Path::Class::File->new($dest)->openw;
+		my $p12 = $tempdir->child('cert.p12')->slurp;
+		my $fh  = path($dest)->openw;
 		print $fh $p12;
 	}
 	
 	my ($on_triple, $on_done) = (sub {}, sub {});
 	if (ref $rdf_sink eq 'SCALAR')
 	{
-		$$rdf_sink = RDF::Trine::Model->new;
+		$$rdf_sink = Model->new;
 		$on_triple = sub { $$rdf_sink->add_statement(statement(@_)) };
 	}
 	elsif (blessed($rdf_sink) and $rdf_sink->isa('RDF::Trine::Model'))
@@ -156,13 +152,13 @@ sub generate
 	}
 	else
 	{
-		my $model = RDF::Trine::Model->new;
-		my $fh    = Path::Class::File->new($rdf_sink)->openw;
+		my $model = Model->new;
+		my $fh    = path($rdf_sink)->openw;
 		$on_triple = sub { $model->add_statement(statement(@_)) };
-		$on_done   = sub { RDF::Trine::Serializer->new('RDFXML')->serialize_model_to_file($fh, $model) };
+		$on_done   = sub { "RDF::Trine::Serializer"->new('RDFXML')->serialize_model_to_file($fh, $model) };
 	}
 	
-	my $pem  = $tempdir->file('cert.pem')->slurp;
+	my $pem  = $tempdir->child('cert.pem')->slurp;
 	my $cert = $class->new(pem => $pem);
 	
 	my $hex = sub {
@@ -181,7 +177,7 @@ sub generate
 	}
 	$on_done->();
 	
-	$tempdir->rmtree;
+	$tempdir->remove_tree;
 	
 	return $cert;
 }
@@ -315,8 +311,8 @@ Not required.
 =item * C<openssl_path>
 
 The path to the OpenSSL binary. Yes that's right, this role calls the
-OpenSSL binary via C<system> calls. Defaults to "/usr/bin/openssl" (or
-"c:\openssl\bin\openssl.exe" on Windows).
+OpenSSL binary via C<system> calls. Defaults to automatic discovery
+via L<Web::ID::Util::FindOpenSSL>.
 
 =item * C<key_size>
 
