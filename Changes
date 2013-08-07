@@ -4,6 +4,12 @@ Web-ID
 Created:      2012-04-26
 Home page:    <https://metacpan.org/release/Web-ID>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>
+Maintainer:   Toby Inkster <mailto:tobyink@cpan.org>
+
+1.924_01  2013-08-07
+
+ - (Bugfix) Type::Utils no longer exports `extends` by default; request it.
+ - (Packaging) Minor packaging fixes.
 
 1.923  2013-05-21
 

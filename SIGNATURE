@@ -15,13 +15,13 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 294505f858f11dd062e9916e3f50d88210a9ef54 CONTRIBUTING
-SHA1 f24e6bcfd28af50a924d96535603e530fdcd9a86 COPYRIGHT
-SHA1 7339d9dd8cc390854ef259a1ab59b1d2c02dacb7 CREDITS
-SHA1 20925426c83c50f513e204e5bd9801366c4f5211 Changes
+SHA1 d7158169613c97d32ef0a656f068b3daad1434f2 COPYRIGHT
+SHA1 5963f8e3595393caa6ef78df4e4e0bec0ff386ac CREDITS
+SHA1 4379269771d3870b62d56d5c6e14b0e8fd0fe002 Changes
 SHA1 937d452c5c4069f4cda9ffaf45a33f1eb5f060e8 LICENSE
-SHA1 f53ce938039a50f37968ffad043d6e1b1b5e22aa MANIFEST
-SHA1 0619beb8ab7fe0c2f7f13b99e238cb2cff269bbb META.ttl
-SHA1 e158fc5cf002ed8548627f8105e50e1132338c99 META.yml
+SHA1 173ddfd913892a4e305d306d21f17c84579e144c MANIFEST
+SHA1 a9588e1cf249eaeeb4cb23f517edc8c9d298d467 META.ttl
+SHA1 f6480359fdfc0a6278793de1a04f6686571ed3e0 META.yml
 SHA1 f768ca1fde632a12cebccea3456629d3af4766df Makefile.PL
 SHA1 ed014dcabc60e78266b5e691cc56a853018be058 README
 SHA1 42fd4caeb9333e3f37e86c2bdb38cec4ccbc78c0 examples/certificate-generation.pl
@@ -34,7 +34,6 @@ SHA1 61ab1dd37e33ddbe155907ce51df8a3e56ac8bbf inc/Module/Install/AutoInstall.pm
 SHA1 c04f94f91fa97b9f8cfb5a36071098ab0e6c78e3 inc/Module/Install/AutoManifest.pm
 SHA1 2d0fad3bf255f8c1e7e1e34eafccc4f595603ddc inc/Module/Install/Base.pm
 SHA1 f0e01fff7d73cd145fbf22331579918d4628ddb0 inc/Module/Install/Can.pm
-SHA1 9e4cc10c7f138a3f2c60d9ee1f34261f0d8c5aae inc/Module/Install/Contributors.pm
 SHA1 7328966e4fda0c8451a6d3850704da0b84ac1540 inc/Module/Install/Fetch.pm
 SHA1 66d3d335a03492583a3be121a7d888f63f08412c inc/Module/Install/Include.pm
 SHA1 b62ca5e2d58fa66766ccf4d64574f9e1a2250b34 inc/Module/Install/Makefile.pm
@@ -44,32 +43,32 @@ SHA1 41f76ff6b39368a65da86377e43b34bacc2fb0eb inc/Module/Install/TrustMetaYml.pm
 SHA1 e4196994fa75e98bdfa2be0bdeeffef66de88171 inc/Module/Install/Win32.pm
 SHA1 c3a6d0d5b84feb3280622e9599e86247d58b0d18 inc/Module/Install/WriteAll.pm
 SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 5a2f84a7a82eee0d1e5ed3628fe503a608efc10f inc/Module/Package/Dist/RDF.pm
+SHA1 685e964c05a5f29d416f263c35589a10cb7296e1 inc/Module/Package/Dist/RDF.pm
 SHA1 feb933cefe2e3762e8322bd6071a2499f3440da1 inc/YAML/Tiny.pm
-SHA1 4c2a620d34ea23a5dcc3b202201c6e80d1788561 lib/Plack/Middleware/Auth/WebID.pm
-SHA1 5ac1bb5be6f870432b00d1fed88b635292ef5de0 lib/Web/ID.pm
-SHA1 0c0712e8fd63685b7b36063a990aa3bef9a42518 lib/Web/ID/Certificate.pm
-SHA1 eeec149ce40ef966e96e7a1a02a6256c0d6560d6 lib/Web/ID/Certificate/Generator.pm
+SHA1 b39bc2692e948297092f0cff3148151ba041c64a lib/Plack/Middleware/Auth/WebID.pm
+SHA1 2912979e7608102a67a3d9f5eec3b6ae830317dc lib/Web/ID.pm
+SHA1 b1a999c729217c5573d983d835fab9d1766cbdc4 lib/Web/ID/Certificate.pm
+SHA1 7e0729af0d0ad29eea5daab2bee0967571b88ebc lib/Web/ID/Certificate/Generator.pm
 SHA1 f5814fea529758d9913f8211f44e852644f14bba lib/Web/ID/FAQ.pod
-SHA1 594a4be766f4235adb3f257233832109410f5826 lib/Web/ID/RSAKey.pm
-SHA1 a67cd654ecdce353921b15767710d71c8dd8d3c4 lib/Web/ID/SAN.pm
-SHA1 d56eb31ff3f75183114d284caeefc72d7d99ff11 lib/Web/ID/SAN/Email.pm
-SHA1 0f8b46f20f978bdee95f0b8a36399cade33fdc5b lib/Web/ID/SAN/URI.pm
-SHA1 1b88e858cd534b5a78bdcc9bea9d5de49d71cc96 lib/Web/ID/Types.pm
-SHA1 9aa230662412a34477a0f470ff620ad43a287a04 lib/Web/ID/Util.pm
-SHA1 d646018f86771d3b2ff8fe1784eafe2fd319045a lib/Web/ID/Util/FindOpenSSL.pm
-SHA1 7a1198d374fbf931e6c513e5a423b9f64f40f40b meta/changes.ttl
-SHA1 61b2a6a07ee5a7246a8faef108bf5145b021e0ba meta/doap.ttl
+SHA1 a77af5f16ab9b7866b06608eafa50a7972c9f552 lib/Web/ID/RSAKey.pm
+SHA1 b6f7eed1767d415e65bdc2cfc1ec42a445649ea7 lib/Web/ID/SAN.pm
+SHA1 5c0f594786e7468622abf327c6f4c24c9867b942 lib/Web/ID/SAN/Email.pm
+SHA1 25814069ee99b9c05fabffb8957aadd7ea99ccb0 lib/Web/ID/SAN/URI.pm
+SHA1 63c37d38e691c00d6f7bd3b8bbee021ef83893f3 lib/Web/ID/Types.pm
+SHA1 b26becf7c8ec20d61a80f80e6c726b35e3d2c59f lib/Web/ID/Util.pm
+SHA1 6cf0e20f6a3a5208d87f1de7cc721001b1154d9e lib/Web/ID/Util/FindOpenSSL.pm
+SHA1 2e1d10b4ba99e6e818e4d4e281bca4528eadc2d0 meta/changes.ttl
+SHA1 7586a03312869f98f07a6383a39c073941f39ab4 meta/doap.ttl
 SHA1 8308219534858bd95c16127c69fee56857826550 meta/makefile.ttl
 SHA1 311478d30fce690179458dd8b5ca2afc951c8e42 t/01mouse.t
 SHA1 61357e85d9676b656a5cedf29618fbdcfc7405b3 t/02moose.t
 SHA1 6bccc6bac755209db20f7eb4ccfe2fbcb6780d06 t/03certificate.t
-SHA1 7f7014f6962eb3f8c2be8b3b1d0e6e3aecf27037 t/04webid.t
+SHA1 b468d166763361712722420123189e969ab2fb4f t/04webid.t
 SHA1 c145c4023e4f8a015b0110476aedd8deccac81e2 t/lib/Test/HTTP/Server.pm
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
-iEYEARECAAYFAlGb6MEACgkQzr+BKGoqfTl9KgCgtIznLjOcgkHb5QFhdnE15mwq
-FPEAoKqAUT+DgxJmJfoMgInZ640jAp1C
-=i8VQ
+iEYEARECAAYFAlICaAgACgkQzr+BKGoqfTlHLgCfYam2pUIMl33w+p1kyW7TnJiG
+yRAAnjjAYJjlsG8YK59hLXlKWYX/YEj+
+=skEl
 -----END PGP SIGNATURE-----

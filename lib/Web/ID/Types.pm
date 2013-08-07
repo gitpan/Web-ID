@@ -6,7 +6,7 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Types::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Types::VERSION   = '1.923';
+	$Web::ID::Types::VERSION   = '1.924_01';
 };
 
 use DateTime;
@@ -17,7 +17,7 @@ use URI;
 use Type::Library
 	-base,
 	-declare => qw[ Bigint Certificate Datetime Finger Model Rsakey San Uri ];
-use Type::Utils;
+use Type::Utils -all;
 
 BEGIN { extends "Types::Standard" };
 
