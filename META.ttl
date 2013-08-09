@@ -1,248 +1,223 @@
-@prefix cgi-auth-foaf_ssl: <http://purl.org/NET/cpan-uri/dist/CGI-Auth-FOAF_SSL/> .
-@prefix cpan:  <http://purl.org/NET/cpan-uri/person/> .
-@prefix cpant: <http://purl.org/NET/cpan-uri/terms#> .
 @prefix dc:    <http://purl.org/dc/terms/> .
-@prefix dcs:   <http://ontologi.es/doap-changeset#> .
-@prefix dist:  <http://purl.org/NET/cpan-uri/dist/Web-ID/> .
 @prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix doap-changeset: <http://ontologi.es/doap-changeset#> .
+@prefix doap-deps: <http://ontologi.es/doap-deps#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-@prefix nfo:   <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
-dist:project
-	a                 doap:Project;
-	doap:name         "Web-ID";
-	cpant:perl_version_from _:B1;
-	cpant:readme_from _:B1;
-	cpant:requires    "Crypt::X509";
-	cpant:requires    "DateTime";
-	cpant:requires    "Digest::SHA";
-	cpant:requires    "Exporter::TypeTiny 0.004";
-	cpant:requires    "File::ShareDir";
-	cpant:requires    "List::MoreUtils";
-	cpant:requires    "Moose";
-	cpant:requires    "Path::Tiny";
-	cpant:requires    "Plack";
-	cpant:requires    "RDF::Query 2.900";
-	cpant:requires    "RDF::Trine 1.000";
-	cpant:requires    "Types::Standard 0.004";
-	cpant:requires    "URI";
-	cpant:requires    "match::simple 0.004";
-	cpant:requires    "namespace::sweep";
-	cpant:test_requires "Test::More 0.61";
-	cpant:version_from _:B1;
-	doap:bug-database <http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>;
-	doap:created      "2012-04-26"^^xsd:date;
-	doap:developer    cpan:tobyink;
-	doap:download-page <https://metacpan.org/release/Web-ID>;
-	doap:homepage     <https://metacpan.org/release/Web-ID>;
-	doap:license      <http://dev.perl.org/licenses/>;
-	doap:maintainer   cpan:tobyink;
+<http://dev.perl.org/licenses/>
+	dc:title             "the same terms as the perl 5 programming language system itself".
+
+<http://purl.org/NET/cpan-uri/dist/Web-ID/project>
+	a                    doap:Project;
+	doap-deps:runtime-requirement [ doap-deps:on "Crypt::X509"^^doap-deps:CpanId ], [ doap-deps:on "DateTime"^^doap-deps:CpanId ], [ doap-deps:on "Plack"^^doap-deps:CpanId ], [ doap-deps:on "RDF::Query 2.900"^^doap-deps:CpanId ], [ doap-deps:on "RDF::Trine 1.000"^^doap-deps:CpanId ], [
+		doap-deps:on "Types::Standard 0.022"^^doap-deps:CpanId;
+	], [ doap-deps:on "URI"^^doap-deps:CpanId ], [ doap-deps:on "Digest::SHA"^^doap-deps:CpanId ], [
+		doap-deps:on "Exporter::TypeTiny 0.004"^^doap-deps:CpanId;
+	], [ doap-deps:on "File::ShareDir"^^doap-deps:CpanId ], [ doap-deps:on "List::MoreUtils"^^doap-deps:CpanId ], [
+		doap-deps:on "match::simple 0.004"^^doap-deps:CpanId;
+	], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "namespace::sweep"^^doap-deps:CpanId ], [ doap-deps:on "Path::Tiny"^^doap-deps:CpanId ];
+	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ];
+	doap:bug-database    <http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>;
+	doap:created         "2012-04-26"^^xsd:date;
+	doap:developer       <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:download-page   <https://metacpan.org/release/Web-ID>;
+	doap:homepage        <https://metacpan.org/release/Web-ID>;
+	doap:license         <http://dev.perl.org/licenses/>;
+	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:name            "Web-ID";
 	doap:programming-language "Perl";
-	doap:release      dist:v_1-910_01;
-	doap:release      dist:v_1-910_02;
-	doap:release      dist:v_1-910_03;
-	doap:release      dist:v_1-910_04;
-	doap:release      dist:v_1-920;
-	doap:release      dist:v_1-921;
-	doap:release      dist:v_1-922;
-	doap:release      dist:v_1-923;
-	doap:release      dist:v_1-924_01;
-	doap:repository   [
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_01>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_02>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_03>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_04>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-920>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-921>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-922>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-923>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_01>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_02>;
+	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-web-id>;
 	];
-	doap:shortdesc    "implementation of WebID (a.k.a. FOAF+SSL)";
-	rdfs:seeAlso      cgi-auth-foaf_ssl:project.
+	doap:shortdesc       "implementation of WebID (a.k.a. FOAF+SSL)";
+	rdfs:seeAlso         <http://purl.org/NET/cpan-uri/dist/CGI-Auth-FOAF_SSL/project>.
 
-dist:v_1-910_01
-	a                 doap:Version;
-	dc:issued         "2012-05-07"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_01>
+	a                    doap:Version;
+	dc:issued            "2012-05-07"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
 			rdfs:label "Almost complete rewrite of CGI::Auth::FOAF_SSL. Very different (and much cleaner) API."@en;
 		];
-		dcs:versus cgi-auth-foaf_ssl:v_1-002;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/CGI-Auth-FOAF_SSL/v_1-002>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_01.tar.gz>;
-	doap:revision     "1.910_01"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_01.tar.gz>;
+	doap:revision        "1.910_01"^^xsd:string.
 
-dist:v_1-910_02
-	a                 doap:Version;
-	dc:issued         "2012-05-08"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			a dcs:Documentation;
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_02>
+	a                    doap:Version;
+	dc:issued            "2012-05-08"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Documentation;
 			rdfs:label "Improve Web::ID DESCRIPTION."@en;
-			dcs:thanks <urn:uuid:b4739b42-3580-4ec1-bb09-7a23544e09f1>;
-		];
-		dcs:item [
-			a dcs:Documentation;
+			doap-changeset:thanks <urn:uuid:b4739b42-3580-4ec1-bb09-7a23544e09f1>;
+		], [
+			a doap-changeset:Documentation;
 			rdfs:label "Add Any::Moose stuff to Web::ID BUGS section."@en;
-			dcs:thanks cpan:flora;
-		];
-		dcs:item [
-			a dcs:Update;
+			doap-changeset:thanks <http://purl.org/NET/cpan-uri/person/flora>;
+		], [
+			a doap-changeset:Update;
 			rdfs:label "Replace deprecated Digest::SHA1 with Digest::SHA."@en;
-			dcs:thanks <urn:uuid:b4739b42-3580-4ec1-bb09-7a23544e09f1>;
+			doap-changeset:thanks <urn:uuid:b4739b42-3580-4ec1-bb09-7a23544e09f1>;
 		];
-		dcs:versus dist:v_1-910_01;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_01>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_02.tar.gz>;
-	doap:revision     "1.910_02"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_02.tar.gz>;
+	doap:revision        "1.910_02"^^xsd:string.
 
-dist:v_1-910_03
-	a                 doap:Version;
-	dc:issued         "2012-05-09"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_03>
+	a                    doap:Version;
+	dc:issued            "2012-05-09"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
 			rdfs:label "Better hooks for subclassing Plack::Middleware::Auth::WebID."@en;
 		];
-		dcs:versus dist:v_1-910_02;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_02>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_03.tar.gz>;
-	doap:revision     "1.910_03"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_03.tar.gz>;
+	doap:revision        "1.910_03"^^xsd:string.
 
-dist:v_1-910_04
-	a                 doap:Version;
-	dc:issued         "2012-05-09"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			rdfs:label "Use File::Temp and Path::Class in t/04webid.t - they're already dependencies, so might as well."@en;
-			dcs:thanks cpan:kjetilk;
-		];
-		dcs:item [
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_04>
+	a                    doap:Version;
+	dc:issued            "2012-05-09"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
 			rdfs:label "Drop dependency on Class::Load; use load_class from Plack::Util instead."@en;
+		], [
+			rdfs:label "Use File::Temp and Path::Class in t/04webid.t - they're already dependencies, so might as well."@en;
+			doap-changeset:thanks <http://purl.org/NET/cpan-uri/person/kjetilk>;
 		];
-		dcs:versus dist:v_1-910_03;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_03>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_04.tar.gz>;
-	doap:revision     "1.910_04"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.910_04.tar.gz>;
+	doap:revision        "1.910_04"^^xsd:string.
 
-dist:v_1-920
-	a                 doap:Version;
-	dc:issued         "2012-05-10"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			a dcs:Documentation;
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-920>
+	a                    doap:Version;
+	dc:issued            "2012-05-10"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Documentation;
 			rdfs:label "Minor documentation changes."@en;
-		];
-		dcs:item [
-			a dcs:Packaging;
+		], [
+			a doap-changeset:Packaging;
 			rdfs:label "Mark as non-development release."@en;
 		];
-		dcs:versus dist:v_1-910_04;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_04>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.920.tar.gz>;
-	doap:revision     "1.920"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.920.tar.gz>;
+	doap:revision        "1.920"^^xsd:string.
 
-dist:v_1-921
-	a                 doap:Version;
-	dc:issued         "2012-05-20"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			a dcs:Packaging;
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-921>
+	a                    doap:Version;
+	dc:issued            "2012-05-20"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
 			rdfs:label "Add version number (0.06) to MouseX::Types dependency."@en;
 		];
-		dcs:versus dist:v_1-920;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-920>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.921.tar.gz>;
-	doap:revision     "1.921"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.921.tar.gz>;
+	doap:revision        "1.921"^^xsd:string.
 
-dist:v_1-922
-	a                 doap:Version;
-	dc:issued         "2012-12-15"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			a dcs:Update;
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-922>
+	a                    doap:Version;
+	dc:issued            "2012-12-15"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Update;
 			rdfs:label "RDF::Trine now uses Moose, so there's no reason for Web::ID to continue using Any::Moose. All the old Any::Moose/Mouse stuff is now gone, and Web::ID now uses Moose and MooseX::Types."@en;
-		];
-		dcs:item [
-			a dcs:Update;
+		], [
+			a doap-changeset:Update;
 			rdfs:label "Switched from namespace::clean to namespace::sweep."@en;
-		];
-		dcs:item [
-			a dcs:Documentation;
+		], [
+			a doap-changeset:Documentation;
 			rdfs:label "Documented test suite."@en;
-		];
-		dcs:item [
-			a dcs:Change;
+		], [
+			a doap-changeset:Change;
 			rdfs:label "Make test suite output cleaner (no openssl junk) if Capture::Tiny is available."@en;
 		];
-		dcs:versus dist:v_1-921;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-921>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.922.tar.gz>;
-	doap:revision     "1.922"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.922.tar.gz>;
+	doap:revision        "1.922"^^xsd:string.
 
-dist:v_1-923
-	a                 doap:Version;
-	dc:issued         "2013-05-21"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			a dcs:Change;
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-923>
+	a                    doap:Version;
+	dc:issued            "2013-05-21"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Change;
 			rdfs:label "Switched from MooseX::Types to Types::Standard."@en;
-		];
-		dcs:item [
-			a dcs:Change;
+		], [
+			a doap-changeset:Change;
 			rdfs:label "Switched from Sub::Exporter to Exporter::TypeTiny."@en;
-		];
-		dcs:item [
-			a dcs:Change;
+		], [
+			a doap-changeset:Change;
 			rdfs:label "Switched from smartmatch to match::smart."@en;
-		];
-		dcs:item [
-			a dcs:Change;
+		], [
+			a doap-changeset:Change;
 			rdfs:label "Switched from Path::Class to Path::Tiny."@en;
-		];
-		dcs:item [
-			a dcs:Change;
+		], [
+			a doap-changeset:Change;
 			rdfs:label "Do a better job searching for OpenSSL binary; use Alien::OpenSSL if it can't be found."@en;
 		];
-		dcs:versus dist:v_1-922;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-922>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.923.tar.gz>;
-	doap:revision     "1.923"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.923.tar.gz>;
+	doap:revision        "1.923"^^xsd:string.
 
-dist:v_1-924_01
-	a                 doap:Version;
-	dc:issued         "2013-08-07"^^xsd:date;
-	dcs:changeset     [
-		dcs:item [
-			a dcs:Packaging;
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_01>
+	a                    doap:Version;
+	dc:issued            "2013-08-07"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
 			rdfs:label "Minor packaging fixes."@en;
-		];
-		dcs:item [
-			a dcs:Bugfix;
+		], [
+			a doap-changeset:Bugfix;
 			rdfs:label "Type::Utils no longer exports `extends` by default; request it."@en;
 		];
-		dcs:versus dist:v_1-923;
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-923>;
 	];
-	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.924_01.tar.gz>;
-	doap:revision     "1.924_01"^^xsd:string.
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.924_01.tar.gz>;
+	doap:revision        "1.924_01"^^xsd:string.
 
-cpan:flora
-	a                 foaf:Person;
-	foaf:name         "Florian Ragwitz";
-	foaf:mbox         <mailto:flora@cpan.org>.
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_02>
+	a                    doap:Version;
+	dc:issued            "2013-08-09"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
+			rdfs:label "Package using Dist::Inkt."@en;
+		];
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_01>;
+	];
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.924_02.tar.gz>;
+	doap:revision        "1.924_02"^^xsd:string.
 
-cpan:kjetilk
-	a                 foaf:Person;
-	foaf:name         "Kjetil Kjernsmo";
-	foaf:mbox         <mailto:kjetilk@cpan.org>.
+<http://purl.org/NET/cpan-uri/person/flora>
+	a                    foaf:Person;
+	foaf:mbox            <mailto:flora@cpan.org>;
+	foaf:name            "Florian Ragwitz".
 
-cpan:tobyink
-	a                 foaf:Person;
-	foaf:name         "Toby Inkster";
-	foaf:mbox         <mailto:tobyink@cpan.org>.
+<http://purl.org/NET/cpan-uri/person/kjetilk>
+	a                    foaf:Person;
+	foaf:mbox            <mailto:kjetilk@cpan.org>;
+	foaf:name            "Kjetil Kjernsmo".
+
+<http://purl.org/NET/cpan-uri/person/tobyink>
+	a                    foaf:Person;
+	foaf:mbox            <mailto:tobyink@cpan.org>;
+	foaf:name            "Toby Inkster".
 
 <urn:uuid:b4739b42-3580-4ec1-bb09-7a23544e09f1>
-	a                 foaf:Person;
-	foaf:name         "Jonas Smedegaard".
-
-<http://dev.perl.org/licenses/>
-	dc:title          "the same terms as the perl 5 programming language system itself".
-
-_:B1
-	nfo:fileName      "lib/Web/ID.pm".
+	a                    foaf:Person;
+	foaf:name            "Jonas Smedegaard".
 
