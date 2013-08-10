@@ -5,7 +5,7 @@ my $meta = {
   "abstract"           => "implementation of WebID (a.k.a. FOAF+SSL)",
   "author"             => ["Toby Inkster <tobyink\@cpan.org>"],
   "dynamic_config"     => 1,
-  "generated_by"       => "Dist::Inkt::Profile::TOBYINK version 0.001, CPAN::Meta::Converter version 2.120921",
+  "generated_by"       => "Dist::Inkt::Profile::TOBYINK version 0.002, CPAN::Meta::Converter version 2.120921",
   "keywords"           => [],
   "license"            => ["perl_5"],
   "meta-spec"          => {
@@ -15,7 +15,9 @@ my $meta = {
   "name"               => "Web-ID",
   "no_index"           => { directory => ["eg", "examples", "inc", "t", "xt"] },
   "prereqs"            => {
-                            configure => { requires => { "ExtUtils::MakeMaker" => 6.31 } },
+                            configure => {
+                              requires => { "ExtUtils::MakeMaker" => 6.31, "File::ShareDir" => 0 },
+                            },
                             runtime => {
                               requires => {
                                 "Crypt::X509"        => 0,
@@ -38,20 +40,20 @@ my $meta = {
                             test => { requires => { "Test::More" => 0.96 } },
                           },
   "provides"           => {
-                            "Plack::Middleware::Auth::WebID"  => { file => "lib/Plack/Middleware/Auth/WebID.pm", version => "1.924_02" },
-                            "Web::ID"                         => { file => "lib/Web/ID.pm", version => "1.924_02" },
-                            "Web::ID::Certificate"            => { file => "lib/Web/ID/Certificate.pm", version => "1.924_02" },
+                            "Plack::Middleware::Auth::WebID"  => { file => "lib/Plack/Middleware/Auth/WebID.pm", version => "1.924_03" },
+                            "Web::ID"                         => { file => "lib/Web/ID.pm", version => "1.924_03" },
+                            "Web::ID::Certificate"            => { file => "lib/Web/ID/Certificate.pm", version => "1.924_03" },
                             "Web::ID::Certificate::Generator" => {
                                                                    file => "lib/Web/ID/Certificate/Generator.pm",
-                                                                   version => "1.924_02",
+                                                                   version => "1.924_03",
                                                                  },
-                            "Web::ID::RSAKey"                 => { file => "lib/Web/ID/RSAKey.pm", version => "1.924_02" },
-                            "Web::ID::SAN"                    => { file => "lib/Web/ID/SAN.pm", version => "1.924_02" },
-                            "Web::ID::SAN::Email"             => { file => "lib/Web/ID/SAN/Email.pm", version => "1.924_02" },
-                            "Web::ID::SAN::URI"               => { file => "lib/Web/ID/SAN/URI.pm", version => "1.924_02" },
-                            "Web::ID::Types"                  => { file => "lib/Web/ID/Types.pm", version => "1.924_02" },
-                            "Web::ID::Util"                   => { file => "lib/Web/ID/Util.pm", version => "1.924_02" },
-                            "Web::ID::Util::FindOpenSSL"      => { file => "lib/Web/ID/Util/FindOpenSSL.pm", version => "1.924_02" },
+                            "Web::ID::RSAKey"                 => { file => "lib/Web/ID/RSAKey.pm", version => "1.924_03" },
+                            "Web::ID::SAN"                    => { file => "lib/Web/ID/SAN.pm", version => "1.924_03" },
+                            "Web::ID::SAN::Email"             => { file => "lib/Web/ID/SAN/Email.pm", version => "1.924_03" },
+                            "Web::ID::SAN::URI"               => { file => "lib/Web/ID/SAN/URI.pm", version => "1.924_03" },
+                            "Web::ID::Types"                  => { file => "lib/Web/ID/Types.pm", version => "1.924_03" },
+                            "Web::ID::Util"                   => { file => "lib/Web/ID/Util.pm", version => "1.924_03" },
+                            "Web::ID::Util::FindOpenSSL"      => { file => "lib/Web/ID/Util/FindOpenSSL.pm", version => "1.924_03" },
                           },
   "release_status"     => "testing",
   "resources"          => {
@@ -60,8 +62,7 @@ my $meta = {
                             license    => ["http://dev.perl.org/licenses/"],
                             repository => { type => "git", web => "https://github.com/tobyink/p5-web-id" },
                           },
-  "version"            => "1.924_02",
-  "x_contributors"     => [],
+  "version"            => "1.924_03",
   "x_provides_scripts" => {},
 };
 
