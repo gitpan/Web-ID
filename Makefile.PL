@@ -1,11 +1,13 @@
 use strict;
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.17;
+
+my $EUMM = 'ExtUtils::MakeMaker'->VERSION;
 
 my $meta = {
   "abstract"           => "implementation of WebID (a.k.a. FOAF+SSL)",
-  "author"             => ["Toby Inkster <tobyink\@cpan.org>"],
+  "author"             => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
   "dynamic_config"     => 1,
-  "generated_by"       => "Dist::Inkt::Profile::TOBYINK version 0.002, CPAN::Meta::Converter version 2.120921",
+  "generated_by"       => "Dist::Inkt::Profile::TOBYINK version 0.007, CPAN::Meta::Converter version 2.120921",
   "keywords"           => [],
   "license"            => ["perl_5"],
   "meta-spec"          => {
@@ -16,7 +18,7 @@ my $meta = {
   "no_index"           => { directory => ["eg", "examples", "inc", "t", "xt"] },
   "prereqs"            => {
                             configure => {
-                              requires => { "ExtUtils::MakeMaker" => 6.31, "File::ShareDir" => 0 },
+                              requires => { "ExtUtils::MakeMaker" => 6.17, "File::ShareDir" => 0 },
                             },
                             runtime => {
                               requires => {
@@ -29,7 +31,8 @@ my $meta = {
                                 "match::simple"      => 0.004,
                                 "Moose"              => "2.0600",
                                 "namespace::sweep"   => 0,
-                                "Path::Tiny"         => 0,
+                                "Path::Tiny"         => 0.017,
+                                "perl"               => "5.010",
                                 "Plack"              => 0,
                                 "RDF::Query"         => "2.900",
                                 "RDF::Trine"         => "1.000",
@@ -40,29 +43,27 @@ my $meta = {
                             test => { requires => { "Test::More" => 0.96 } },
                           },
   "provides"           => {
-                            "Plack::Middleware::Auth::WebID"  => { file => "lib/Plack/Middleware/Auth/WebID.pm", version => "1.924_03" },
-                            "Web::ID"                         => { file => "lib/Web/ID.pm", version => "1.924_03" },
-                            "Web::ID::Certificate"            => { file => "lib/Web/ID/Certificate.pm", version => "1.924_03" },
-                            "Web::ID::Certificate::Generator" => {
-                                                                   file => "lib/Web/ID/Certificate/Generator.pm",
-                                                                   version => "1.924_03",
-                                                                 },
-                            "Web::ID::RSAKey"                 => { file => "lib/Web/ID/RSAKey.pm", version => "1.924_03" },
-                            "Web::ID::SAN"                    => { file => "lib/Web/ID/SAN.pm", version => "1.924_03" },
-                            "Web::ID::SAN::Email"             => { file => "lib/Web/ID/SAN/Email.pm", version => "1.924_03" },
-                            "Web::ID::SAN::URI"               => { file => "lib/Web/ID/SAN/URI.pm", version => "1.924_03" },
-                            "Web::ID::Types"                  => { file => "lib/Web/ID/Types.pm", version => "1.924_03" },
-                            "Web::ID::Util"                   => { file => "lib/Web/ID/Util.pm", version => "1.924_03" },
-                            "Web::ID::Util::FindOpenSSL"      => { file => "lib/Web/ID/Util/FindOpenSSL.pm", version => "1.924_03" },
+                            "Plack::Middleware::Auth::WebID"  => { file => "lib/Plack/Middleware/Auth/WebID.pm", version => 1.925 },
+                            "Web::ID"                         => { file => "lib/Web/ID.pm", version => 1.925 },
+                            "Web::ID::Certificate"            => { file => "lib/Web/ID/Certificate.pm", version => 1.925 },
+                            "Web::ID::Certificate::Generator" => { file => "lib/Web/ID/Certificate/Generator.pm", version => 1.925 },
+                            "Web::ID::RSAKey"                 => { file => "lib/Web/ID/RSAKey.pm", version => 1.925 },
+                            "Web::ID::SAN"                    => { file => "lib/Web/ID/SAN.pm", version => 1.925 },
+                            "Web::ID::SAN::Email"             => { file => "lib/Web/ID/SAN/Email.pm", version => 1.925 },
+                            "Web::ID::SAN::URI"               => { file => "lib/Web/ID/SAN/URI.pm", version => 1.925 },
+                            "Web::ID::Types"                  => { file => "lib/Web/ID/Types.pm", version => 1.925 },
+                            "Web::ID::Util"                   => { file => "lib/Web/ID/Util.pm", version => 1.925 },
+                            "Web::ID::Util::FindOpenSSL"      => { file => "lib/Web/ID/Util/FindOpenSSL.pm", version => 1.925 },
                           },
-  "release_status"     => "testing",
+  "release_status"     => "stable",
   "resources"          => {
-                            bugtracker => { web => "http://rt.cpan.org/Dist/Display.html?Queue=Web-ID" },
-                            homepage   => "https://metacpan.org/release/Web-ID",
-                            license    => ["http://dev.perl.org/licenses/"],
-                            repository => { type => "git", web => "https://github.com/tobyink/p5-web-id" },
+                            bugtracker   => { web => "http://rt.cpan.org/Dist/Display.html?Queue=Web-ID" },
+                            homepage     => "https://metacpan.org/release/Web-ID",
+                            license      => ["http://dev.perl.org/licenses/"],
+                            repository   => { type => "git", web => "https://github.com/tobyink/p5-web-id" },
+                            X_identifier => "http://purl.org/NET/cpan-uri/dist/Web-ID/project",
                           },
-  "version"            => "1.924_03",
+  "version"            => 1.925,
   "x_provides_scripts" => {},
 };
 
@@ -80,15 +81,15 @@ do {
 
 my %WriteMakefileArgs = (
 	ABSTRACT           => $meta->{abstract},
-	AUTHOR             => $meta->{author},
+	AUTHOR             => ($EUMM >= 6.5702 ? $meta->{author} : $meta->{author}[0]),
 	DISTNAME           => $meta->{name},
-	DISTVNAME          => sprintf('%s-%s', $meta->{name}, $meta->{version}),
-	EXE_FILES          => [ map $_->{file}, values %{ $meta->{x_provides_scripts} || {} } ],
-	LICENSE            => $meta->{license}[0],
-	NAME               => do { my $n = $meta->{name}; $n =~ s/-/::/g; $n },
 	VERSION            => $meta->{version},
+	EXE_FILES          => [ map $_->{file}, values %{ $meta->{x_provides_scripts} || {} } ],
+	NAME               => do { my $n = $meta->{name}; $n =~ s/-/::/g; $n },
 	%dynamic_config,
 );
+
+$WriteMakefileArgs{LICENSE} => $meta->{license}[0] if $EUMM >= 6.3001;
 
 sub deps
 {
@@ -105,23 +106,23 @@ sub deps
 }
 
 my ($build_requires, $configure_requires, $runtime_requires, $test_requires);
-if ('ExtUtils::MakeMaker'->VERSION >= 6.6303)
+if ($EUMM >= 6.6303)
 {
 	$WriteMakefileArgs{BUILD_REQUIRES}     ||= deps('build');
 	$WriteMakefileArgs{CONFIGURE_REQUIRES} ||= deps('configure');
 	$WriteMakefileArgs{TEST_REQUIRES}      ||= deps('test');
 	$WriteMakefileArgs{PREREQ_PM}          ||= deps('runtime');
 }
-elsif ('ExtUtils::MakeMaker'->VERSION >= 6.5503)
+elsif ($EUMM >= 6.5503)
 {
-	$WriteMakefileArgs{BUILD_REQUIRES}     ||= deps('build');
-	$WriteMakefileArgs{CONFIGURE_REQUIRES} ||= deps('configure', 'test');
+	$WriteMakefileArgs{BUILD_REQUIRES}     ||= deps('build', 'test');
+	$WriteMakefileArgs{CONFIGURE_REQUIRES} ||= deps('configure');
 	$WriteMakefileArgs{PREREQ_PM}          ||= deps('runtime');	
 }
-elsif ('ExtUtils::MakeMaker'->VERSION >= 6.52)
+elsif ($EUMM >= 6.52)
 {
-	$WriteMakefileArgs{CONFIGURE_REQUIRES} ||= deps('configure', 'build', 'test');
-	$WriteMakefileArgs{PREREQ_PM}          ||= deps('runtime');	
+	$WriteMakefileArgs{CONFIGURE_REQUIRES} ||= deps('configure');
+	$WriteMakefileArgs{PREREQ_PM}          ||= deps('runtime', 'build', 'test');	
 }
 else
 {
@@ -132,7 +133,7 @@ else
 	my $minperl = delete $WriteMakefileArgs{PREREQ_PM}{perl};
 	exists($WriteMakefileArgs{$_}) && delete($WriteMakefileArgs{$_}{perl})
 		for qw(BUILD_REQUIRES TEST_REQUIRES CONFIGURE_REQUIRES);
-	if ($minperl and 'ExtUtils::MakeMaker'->VERSION >= 6.48)
+	if ($minperl and $EUMM >= 6.48)
 	{
 		$WriteMakefileArgs{MIN_PERL_VERSION} ||= $minperl;
 	}

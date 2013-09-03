@@ -5,12 +5,12 @@ Changes
 LICENSE
 MANIFEST
 META.json
-META.ttl
 META.yml
 Makefile.PL
 README
 SIGNATURE
 dist.ini
+doap.ttl
 examples/certificate-generation.pl
 examples/certificate-parsing.pl
 examples/fingerpoint-test.pl
