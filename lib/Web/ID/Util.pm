@@ -6,7 +6,7 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Util::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Util::VERSION   = '1.925';
+	$Web::ID::Util::VERSION   = '1.926';
 }
 
 use match::simple qw/match/;
@@ -15,7 +15,7 @@ use Math::BigInt 0 try => 'GMP';
 use RDF::Trine::NamespaceMap;
 use List::MoreUtils qw(:all !true !false);
 
-use base "Exporter::TypeTiny";
+use Exporter::Tiny;
 our @EXPORT = qw(
 	make_bigint_from_node get_trine_model u uu
 	true false read_only read_write
@@ -24,6 +24,7 @@ our @EXPORT_OK = (
 	@EXPORT,
 	grep {!/^(true|false)$/} @List::MoreUtils::EXPORT_OK
 );
+our @ISA = qw( Exporter::Tiny );
 
 use constant {
 	read_only  => 'ro',
@@ -182,7 +183,7 @@ Many of them may also be useful creating the kind of apps that
 Web-ID is used to authenticate for.
 
 Here is a very brief summary. By B<default>, they're B<all> exported
-to your namespace. (This modulue uses L<Exporter::TypeTiny> so you get
+to your namespace. (This module uses L<Exporter::Tiny> so you get
 pretty good control over what gets exported.)
 
 =over
@@ -230,7 +231,7 @@ L<Web::ID> itself.
 
 =head1 SEE ALSO
 
-L<Exporter::TypeTiny>,
+L<Exporter::Tiny>,
 L<Web::ID>,
 L<Acme::24>.
 

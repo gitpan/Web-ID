@@ -23,6 +23,7 @@ Copyright: This software is copyright (c) 2012 by Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
 Files: CONTRIBUTING
+ INSTALL
  LICENSE
  Makefile.PL
  examples/certificate-generation.pl

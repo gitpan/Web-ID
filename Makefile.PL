@@ -1,70 +1,69 @@
 use strict;
 use ExtUtils::MakeMaker 6.17;
 
-my $EUMM = 'ExtUtils::MakeMaker'->VERSION;
+my $EUMM = eval( $ExtUtils::MakeMaker::VERSION );
 
 my $meta = {
-  "abstract"           => "implementation of WebID (a.k.a. FOAF+SSL)",
-  "author"             => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
-  "dynamic_config"     => 1,
-  "generated_by"       => "Dist::Inkt::Profile::TOBYINK version 0.007, CPAN::Meta::Converter version 2.120921",
-  "keywords"           => [],
-  "license"            => ["perl_5"],
-  "meta-spec"          => {
-                            url => "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-                            version => 2,
+  "abstract"       => "implementation of WebID (a.k.a. FOAF+SSL)",
+  "author"         => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
+  "dynamic_config" => 1,
+  "generated_by"   => "Dist::Inkt::Profile::TOBYINK version 0.013, CPAN::Meta::Converter version 2.120921",
+  "keywords"       => [],
+  "license"        => ["perl_5"],
+  "meta-spec"      => {
+                        url => "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+                        version => 2,
+                      },
+  "name"           => "Web-ID",
+  "no_index"       => { directory => ["eg", "examples", "inc", "t", "xt"] },
+  "prereqs"        => {
+                        configure => {
+                          requires => { "ExtUtils::MakeMaker" => 6.17, "File::ShareDir" => 0 },
+                        },
+                        runtime => {
+                          requires => {
+                            "Crypt::X509"      => 0,
+                            "DateTime"         => 0,
+                            "Digest::SHA"      => 0,
+                            "Exporter::Tiny"   => 0,
+                            "File::ShareDir"   => 0,
+                            "List::MoreUtils"  => 0,
+                            "match::simple"    => 0.004,
+                            "Moose"            => "2.0600",
+                            "namespace::sweep" => 0,
+                            "Path::Tiny"       => 0.017,
+                            "perl"             => "5.010",
+                            "Plack"            => 0,
+                            "RDF::Query"       => "2.900",
+                            "RDF::Trine"       => "1.000",
+                            "Types::Standard"  => 0.022,
+                            "URI"              => 0,
                           },
-  "name"               => "Web-ID",
-  "no_index"           => { directory => ["eg", "examples", "inc", "t", "xt"] },
-  "prereqs"            => {
-                            configure => {
-                              requires => { "ExtUtils::MakeMaker" => 6.17, "File::ShareDir" => 0 },
-                            },
-                            runtime => {
-                              requires => {
-                                "Crypt::X509"        => 0,
-                                "DateTime"           => 0,
-                                "Digest::SHA"        => 0,
-                                "Exporter::TypeTiny" => 0.004,
-                                "File::ShareDir"     => 0,
-                                "List::MoreUtils"    => 0,
-                                "match::simple"      => 0.004,
-                                "Moose"              => "2.0600",
-                                "namespace::sweep"   => 0,
-                                "Path::Tiny"         => 0.017,
-                                "perl"               => "5.010",
-                                "Plack"              => 0,
-                                "RDF::Query"         => "2.900",
-                                "RDF::Trine"         => "1.000",
-                                "Types::Standard"    => 0.022,
-                                "URI"                => 0,
-                              },
-                            },
-                            test => { requires => { "Test::More" => 0.96 } },
-                          },
-  "provides"           => {
-                            "Plack::Middleware::Auth::WebID"  => { file => "lib/Plack/Middleware/Auth/WebID.pm", version => 1.925 },
-                            "Web::ID"                         => { file => "lib/Web/ID.pm", version => 1.925 },
-                            "Web::ID::Certificate"            => { file => "lib/Web/ID/Certificate.pm", version => 1.925 },
-                            "Web::ID::Certificate::Generator" => { file => "lib/Web/ID/Certificate/Generator.pm", version => 1.925 },
-                            "Web::ID::RSAKey"                 => { file => "lib/Web/ID/RSAKey.pm", version => 1.925 },
-                            "Web::ID::SAN"                    => { file => "lib/Web/ID/SAN.pm", version => 1.925 },
-                            "Web::ID::SAN::Email"             => { file => "lib/Web/ID/SAN/Email.pm", version => 1.925 },
-                            "Web::ID::SAN::URI"               => { file => "lib/Web/ID/SAN/URI.pm", version => 1.925 },
-                            "Web::ID::Types"                  => { file => "lib/Web/ID/Types.pm", version => 1.925 },
-                            "Web::ID::Util"                   => { file => "lib/Web/ID/Util.pm", version => 1.925 },
-                            "Web::ID::Util::FindOpenSSL"      => { file => "lib/Web/ID/Util/FindOpenSSL.pm", version => 1.925 },
-                          },
-  "release_status"     => "stable",
-  "resources"          => {
-                            bugtracker   => { web => "http://rt.cpan.org/Dist/Display.html?Queue=Web-ID" },
-                            homepage     => "https://metacpan.org/release/Web-ID",
-                            license      => ["http://dev.perl.org/licenses/"],
-                            repository   => { type => "git", web => "https://github.com/tobyink/p5-web-id" },
-                            X_identifier => "http://purl.org/NET/cpan-uri/dist/Web-ID/project",
-                          },
-  "version"            => 1.925,
-  "x_provides_scripts" => {},
+                        },
+                        test => { requires => { "Test::More" => 0.96 } },
+                      },
+  "provides"       => {
+                        "Plack::Middleware::Auth::WebID"  => { file => "lib/Plack/Middleware/Auth/WebID.pm", version => 1.926 },
+                        "Web::ID"                         => { file => "lib/Web/ID.pm", version => 1.926 },
+                        "Web::ID::Certificate"            => { file => "lib/Web/ID/Certificate.pm", version => 1.926 },
+                        "Web::ID::Certificate::Generator" => { file => "lib/Web/ID/Certificate/Generator.pm", version => 1.926 },
+                        "Web::ID::RSAKey"                 => { file => "lib/Web/ID/RSAKey.pm", version => 1.926 },
+                        "Web::ID::SAN"                    => { file => "lib/Web/ID/SAN.pm", version => 1.926 },
+                        "Web::ID::SAN::Email"             => { file => "lib/Web/ID/SAN/Email.pm", version => 1.926 },
+                        "Web::ID::SAN::URI"               => { file => "lib/Web/ID/SAN/URI.pm", version => 1.926 },
+                        "Web::ID::Types"                  => { file => "lib/Web/ID/Types.pm", version => 1.926 },
+                        "Web::ID::Util"                   => { file => "lib/Web/ID/Util.pm", version => 1.926 },
+                        "Web::ID::Util::FindOpenSSL"      => { file => "lib/Web/ID/Util/FindOpenSSL.pm", version => 1.926 },
+                      },
+  "release_status" => "stable",
+  "resources"      => {
+                        bugtracker   => { web => "http://rt.cpan.org/Dist/Display.html?Queue=Web-ID" },
+                        homepage     => "https://metacpan.org/release/Web-ID",
+                        license      => ["http://dev.perl.org/licenses/"],
+                        repository   => { type => "git", web => "https://github.com/tobyink/p5-web-id" },
+                        X_identifier => "http://purl.org/NET/cpan-uri/dist/Web-ID/project",
+                      },
+  "version"        => 1.926,
 };
 
 my %dynamic_config;
@@ -80,16 +79,16 @@ do {
 };
 
 my %WriteMakefileArgs = (
-	ABSTRACT           => $meta->{abstract},
-	AUTHOR             => ($EUMM >= 6.5702 ? $meta->{author} : $meta->{author}[0]),
-	DISTNAME           => $meta->{name},
-	VERSION            => $meta->{version},
-	EXE_FILES          => [ map $_->{file}, values %{ $meta->{x_provides_scripts} || {} } ],
-	NAME               => do { my $n = $meta->{name}; $n =~ s/-/::/g; $n },
+	ABSTRACT   => $meta->{abstract},
+	AUTHOR     => ($EUMM >= 6.5702 ? $meta->{author} : $meta->{author}[0]),
+	DISTNAME   => $meta->{name},
+	VERSION    => $meta->{version},
+	EXE_FILES  => [ map $_->{file}, values %{ $meta->{x_provides_scripts} || {} } ],
+	NAME       => do { my $n = $meta->{name}; $n =~ s/-/::/g; $n },
 	%dynamic_config,
 );
 
-$WriteMakefileArgs{LICENSE} => $meta->{license}[0] if $EUMM >= 6.3001;
+$WriteMakefileArgs{LICENSE} = $meta->{license}[0] if $EUMM >= 6.3001;
 
 sub deps
 {
@@ -98,6 +97,7 @@ sub deps
 	{
 		for my $dep (keys %{$meta->{prereqs}{$stage}{requires}})
 		{
+			next if $dep eq 'perl';
 			my $ver = $meta->{prereqs}{$stage}{requires}{$dep};
 			$r{$dep} = $ver if !exists($r{$dep}) || $ver >= $r{$dep};
 		}
@@ -130,16 +130,19 @@ else
 }
 
 {
-	my $minperl = delete $WriteMakefileArgs{PREREQ_PM}{perl};
-	exists($WriteMakefileArgs{$_}) && delete($WriteMakefileArgs{$_}{perl})
-		for qw(BUILD_REQUIRES TEST_REQUIRES CONFIGURE_REQUIRES);
-	if ($minperl and $EUMM >= 6.48)
+	my ($minperl) = reverse sort(
+		grep defined && /^[0-9]+(\.[0-9]+)?$/,
+		map $meta->{prereqs}{$_}{requires}{perl},
+		qw( configure build runtime )
+	);
+	
+	if (defined($minperl))
 	{
-		$WriteMakefileArgs{MIN_PERL_VERSION} ||= $minperl;
-	}
-	elsif ($minperl)
-	{
-		die "Need Perl >= $minperl" unless $] >= $minperl;
+		die "Installing $meta->{name} requires Perl >= $minperl"
+			unless $] >= $minperl;
+		
+		$WriteMakefileArgs{MIN_PERL_VERSION} ||= $minperl
+			if $EUMM >= 6.48;
 	}
 }
 
