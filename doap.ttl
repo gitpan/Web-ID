@@ -12,10 +12,10 @@
 <http://purl.org/NET/cpan-uri/dist/Web-ID/project>
 	a                    doap:Project;
 	doap-deps:configure-requirement [ doap-deps:on "File::ShareDir"^^doap-deps:CpanId ];
-	doap-deps:runtime-requirement [ doap-deps:on "perl 5.010"^^doap-deps:CpanId ], [ doap-deps:on "namespace::sweep"^^doap-deps:CpanId ], [ doap-deps:on "Path::Tiny 0.017"^^doap-deps:CpanId ], [ doap-deps:on "Plack"^^doap-deps:CpanId ], [ doap-deps:on "RDF::Query 2.900"^^doap-deps:CpanId ], [ doap-deps:on "RDF::Trine 1.000"^^doap-deps:CpanId ], [
-		doap-deps:on "Types::Standard 0.022"^^doap-deps:CpanId;
-	], [ doap-deps:on "URI"^^doap-deps:CpanId ], [ doap-deps:on "Crypt::X509"^^doap-deps:CpanId ], [ doap-deps:on "DateTime"^^doap-deps:CpanId ], [ doap-deps:on "Digest::SHA"^^doap-deps:CpanId ], [ doap-deps:on "Exporter::Tiny"^^doap-deps:CpanId ], [ doap-deps:on "File::ShareDir"^^doap-deps:CpanId ], [ doap-deps:on "List::MoreUtils"^^doap-deps:CpanId ], [
-		doap-deps:on "match::simple 0.004"^^doap-deps:CpanId;
+	doap-deps:runtime-requirement [ doap-deps:on "perl 5.010"^^doap-deps:CpanId ], [ doap-deps:on "namespace::sweep"^^doap-deps:CpanId ], [ doap-deps:on "Path::Tiny 0.017"^^doap-deps:CpanId ], [ doap-deps:on "Plack"^^doap-deps:CpanId ], [ doap-deps:on "RDF::Query 2.900"^^doap-deps:CpanId ], [ doap-deps:on "RDF::Trine 1.000"^^doap-deps:CpanId ], [ doap-deps:on "Types::DateTime"^^doap-deps:CpanId ], [
+		doap-deps:on "Types::Standard 0.040"^^doap-deps:CpanId;
+	], [ doap-deps:on "Types::URI"^^doap-deps:CpanId ], [ doap-deps:on "URI"^^doap-deps:CpanId ], [ doap-deps:on "Crypt::X509"^^doap-deps:CpanId ], [ doap-deps:on "DateTime"^^doap-deps:CpanId ], [ doap-deps:on "Digest::SHA"^^doap-deps:CpanId ], [ doap-deps:on "Exporter::Tiny"^^doap-deps:CpanId ], [ doap-deps:on "File::ShareDir"^^doap-deps:CpanId ], [ doap-deps:on "List::MoreUtils"^^doap-deps:CpanId ], [
+		doap-deps:on "match::simple 0.008"^^doap-deps:CpanId;
 	], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ];
 	doap:bug-database    <http://rt.cpan.org/Dist/Display.html?Queue=Web-ID>;
@@ -27,7 +27,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Web-ID";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_01>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_02>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_03>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_04>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-920>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-921>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-922>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-923>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_01>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_02>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_03>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-925>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-926>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_01>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_02>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_03>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-910_04>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-920>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-921>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-922>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-923>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_01>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_02>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-924_03>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-925>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-926>, <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-927>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-web-id>;
@@ -233,6 +233,25 @@
 	];
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.926.tar.gz>;
 	doap:revision        "1.926"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-927>
+	a                    doap:Version;
+	dc:issued            "2014-05-10"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
+			rdfs:label "Bump required version of match::simple to 0.008."@en;
+		], [
+			a doap-changeset:Packaging;
+			rdfs:label "Bump required version of Types::Standard to 0.040."@en;
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Rather than defining Datetime and Uri types in Web::ID::Types, use Types::DateTime and Types::URI from CPAN."@en;
+		];
+		doap-changeset:versus <http://purl.org/NET/cpan-uri/dist/Web-ID/v_1-926>;
+	];
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Web-ID-1.927.tar.gz>;
+	doap:revision        "1.927"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/flora>
 	a                    foaf:Person;

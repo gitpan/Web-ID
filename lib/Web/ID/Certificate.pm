@@ -5,7 +5,7 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Certificate::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Certificate::VERSION   = '1.926';
+	$Web::ID::Certificate::VERSION   = '1.927';
 }
 
 use Crypt::X509 0.50 ();  # why the hell does this export anything?!
@@ -70,7 +70,7 @@ has subject_alt_names => (
 
 has $_ => (
 	is          => read_only,
-	isa         => Datetime,
+	isa         => DateTime,
 	lazy_build  => true,
 	coerce      => true,
 ) for qw( not_before not_after );
@@ -154,7 +154,7 @@ sub _build_san_factory
 sub timely
 {
 	my ($self, $now) = @_;
-	$now //= Datetime->class->now;
+	$now //= DateTime->coerce('now');
 	
 	return if $now > $self->not_after;
 	return if $now < $self->not_before;

@@ -36,10 +36,9 @@ License: Unknown
 Files: Changes
  META.json
  META.yml
- dist.ini
  doap.ttl
  lib/Web/ID/Util/FindOpenSSL.pm
-Copyright: Copyright 2013 Toby Inkster.
+Copyright: Copyright 2014 Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
 Files: COPYRIGHT
@@ -48,19 +47,23 @@ Files: COPYRIGHT
 Copyright: None
 License: public-domain
 
+Files: dist.ini
+Copyright: Copyright 2013 Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
+
 Files: t/lib/Test/HTTP/Server.pm
 Copyright: Copyright 2012 Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
 License: Artistic-1.0
- This software is Copyright (c) 2013 by the copyright holder(s).
+ This software is Copyright (c) 2014 by the copyright holder(s).
  
  This is free software, licensed under:
  
    The Artistic License 1.0
 
 License: GPL-1.0
- This software is Copyright (c) 2013 by the copyright holder(s).
+ This software is Copyright (c) 2014 by the copyright holder(s).
  
  This is free software, licensed under:
  

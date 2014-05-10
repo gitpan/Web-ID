@@ -5,7 +5,7 @@ use utf8;
 
 BEGIN {
 	$Web::ID::Certificate::Generator::AUTHORITY = 'cpan:TOBYINK';
-	$Web::ID::Certificate::Generator::VERSION   = '1.926';
+	$Web::ID::Certificate::Generator::VERSION   = '1.927';
 }
 
 use Moose::Util qw(apply_all_roles);
@@ -59,7 +59,7 @@ sub generate
 	confess "unsupported options: ".(join q(, ), sort keys %options) if %options;
 	
 	my $days = $not_after
-		? $not_after->delta_days( Datetime->class->now )->days
+		? $not_after->delta_days( DateTime->coerce('now') )->days
 		: 365;
 	
 	my $tempdir = path( File::Temp->newdir );
